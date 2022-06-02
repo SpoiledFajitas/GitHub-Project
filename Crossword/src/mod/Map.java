@@ -1,5 +1,6 @@
 package mod;
 
+//makes the layout of the crossword setting where each of the words and their letters will be located.
 public enum Map {
 
 	Easy(new boolean[][] { 
@@ -19,10 +20,12 @@ public enum Map {
 	
 	private boolean[][] _map;
 
+	//returns the map
 	public boolean[][] getArr() {
 		return _map;
 	}
 
+	//creates the map
 	private Map(boolean[][] map) {
 		_map = map;
 	}

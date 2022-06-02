@@ -5,7 +5,8 @@ import mod.Overseer;
 import javax.swing.*;
 
 public class Main {
-
+	
+	//Begins the program as well as giving the user a start up message for the crossword.
 	public static void main(String[] args0) {
 		ImageIcon start = new ImageIcon("startMOM.png");
 		JOptionPane.showMessageDialog(null,"", "Your mom gives you a crossword. You dont like crosswords but you like your mom, so you do the crossword", JOptionPane.INFORMATION_MESSAGE, start);

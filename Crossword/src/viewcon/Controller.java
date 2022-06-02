@@ -6,6 +6,8 @@ import javax.swing.JOptionPane;
 import mod.Maze;
 import mod.Overseer;
 
+//Will control the visuals showing a victory screen, and also will update the map every time a correct word is guessed to have the word
+//show up on the map.
 public class Controller {
 
 	private Maze _map;
@@ -17,10 +19,11 @@ public class Controller {
 	private boolean _win4;
 	private boolean _win5;
 
-
+	//returns if the game was won or not
 	public boolean getVictory(){return _victory;}
 
 
+	//creates a new controller with the map type, the name of the player, and if all 5 words have been guessed.
 	public Controller(Maze map, String m, boolean w1, boolean w2, boolean w3, boolean w4, boolean w5) {
 		_map = map;
 		_msg = m;
@@ -31,26 +34,26 @@ public class Controller {
 		_win5 = w5;
 	}
 	
-	public void checkWin() {
-		
-	}
+
 	
 	
 
 
 
-	
+	//displays a victory message and sets victory to true if the player won
 	public void victory() {
 		JOptionPane.showMessageDialog(null, drawMap() + "\n" + "You beat the level" + "\n");
 		_victory = true;
 
 	}
-
+	//displays a defeat message if the player lost
 	public void defeat() {
 		JOptionPane.showMessageDialog(null, drawMap() + "\n" + "Out of tries" + "\n");
 	}
 
-
+	//sets the map visually using the map and maze classes, and uses black squares to represent spaces without letters/ words,
+	// and uses x's to represent places where words would go. Additionally, if a word is gussed correctly, the x's in the location where the
+	//letters of the word should go are replaced for the actual letters.
 	public String drawMap() {
 		String MAP = "";
 		int num = 1;
@@ -343,45 +346,4 @@ public class Controller {
 
 
 
-/*
-if(r == 0 && c == 0) {
-	if(_win1) {
-		MAP += letter + space;
-	}
-	else{
-		MAP += num +space;
-		num ++;
-	}
-}
-if(r == 1 && c == 0) {
-	if(_win1) {
-		MAP += letter2 + space;
-	}
-	else{
-		MAP += num +space;
-		num ++;
-	}
-}
-if(r == 2 && c == 0) {
-	if(_win1) {
-		MAP += letter + space;
-	}
-	else{
-		MAP += num +space;
-		num ++;
-	}
-}
-else if(map[r][c]) {
-	MAP += white + space + space;
-}
-else {
-	MAP += black + space;
-}
-}
-MAP += "\n";
-}
-return MAP;
 
-
-}
-*/

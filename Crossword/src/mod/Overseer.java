@@ -5,6 +5,9 @@ import javax.swing.JOptionPane;
 
 import viewcon.Controller;
 
+//controls how the crossword operates and checks if the word inputed in a specific line for the crossword is right,
+//if so it makes the word appear on the map as completed and updates a counter. It will also check if the user gets 
+//too many wrong guesses so they will loose.
 public class Overseer {
 
 	private Controller _cnt;
@@ -22,6 +25,8 @@ public class Overseer {
 	private int ric =1;
 
 
+	//creates a new overseer which will create a new Maze, a new controller, and it will give the user options on which word they want to guess
+	//it will loop until the player wins by getting all the words or runs out of attempts.
 	public Overseer() {
 		_maze = new Maze(_level);
 		_cnt = new Controller(_maze, "", win1, win2, win3, win4, win5);
@@ -39,10 +44,22 @@ public class Overseer {
 		
 	}
 	
+
+	//tells if the first word has been guessed
 	public boolean getWin1() { return win1;}
+
+	//tells if the second word has been guessed
 	public boolean getWin2() { return win2;}
+
+	//tells if the third word has been guessed
 	public boolean getWin3() { return win3;}
+
+	//tells if the fourth word has been guessed
+	public boolean getWin4() { return win4;}
 	
+
+	//checks if the word given for the previously selected word to be gussed is correct. If it is it updates the corresponding win, if it isnt.
+	//An attempt is lost. Additionally, it will also check for the rico cheat, where if your name is rico, it will let you see all the answers.
 	public void fCheck() {
 		String temp = "";
 		String temp2 = "";
@@ -103,6 +120,8 @@ public class Overseer {
 		}
 	}
 	
+	//checks if the player has won or lost. If the player guessed all the words they won and they get a victory message, if they ran
+	//ran out of attempts they lost so they get a loss message. If neither is true the game keeps going.
 	private int update() {
 		ImageIcon sad = new ImageIcon("SadMOM.png");
 		ImageIcon happy = new ImageIcon("HappyMOM.png");
@@ -121,26 +140,14 @@ public class Overseer {
 
 	}
 
-
+	//returns a number of 3 times the value of ric.
 	private int rndm() {
 		int x = 3;
 		return x * ric;
 	}
 
 /*
-	private void nextMap(){
-		_maze = new Maze(m);
-		m++;
-		_ply.getLoc().getCol();
-		_ply.getLoc().getRow();
-		_min = new Minotaur(_maze.getSpawn());
-		_min2 = new Minotaur(_maze.get_spawn2());
-		_min3  = new Minotaur(_maze.get_spawn3());
-		_cnt = new Controller(_ply, _min, _maze, JOptionPane.showInputDialog("What is your name"),"Type wasd to move. Sword?" + _ply.hasSword(), _trp, _min2, _min3);
 
-		update();
-	}
-	
 	*/
 	
 	
