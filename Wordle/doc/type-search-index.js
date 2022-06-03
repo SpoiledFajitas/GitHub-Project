@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"viewcon","l":"Controller"},{"p":"main","l":"main"},{"p":"mod","l":"Overseer"}];updateSearchResults();
